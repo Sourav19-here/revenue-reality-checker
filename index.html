@@ -563,7 +563,7 @@
 
       // chip
       document.getElementById('ideaChip').textContent = idea.length > 40 ? idea.slice(0,40)+'…' : idea;
-
+      document.getElementById('categoryBadge').textContent = data.category;
       // score ring
       const circumference = 201;
       const offset = circumference - (score / 100) * circumference;
