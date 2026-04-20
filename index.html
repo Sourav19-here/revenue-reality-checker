@@ -27,7 +27,6 @@
       overflow-x: hidden;
     }
 
-    /* noise overlay */
     body::before {
       content: '';
       position: fixed;
@@ -46,7 +45,6 @@
       padding: 60px 24px 100px;
     }
 
-    /* header */
     .header {
       margin-bottom: 56px;
       opacity: 0;
@@ -85,12 +83,6 @@
       max-width: 480px;
     }
 
-    /* input area */
-    .input-section {
-      opacity: 0;
-      animation: fadeUp 0.7s 0.2s ease forwards;
-    }
-
     .input-label {
       font-size: 11px;
       letter-spacing: 0.12em;
@@ -98,10 +90,6 @@
       color: var(--muted);
       margin-bottom: 10px;
       display: block;
-    }
-
-    .input-wrapper {
-      position: relative;
     }
 
     textarea {
@@ -119,11 +107,7 @@
       min-height: 110px;
     }
 
-    textarea::placeholder { color: var(--muted); }
-
-    textarea:focus {
-      border-color: var(--accent);
-    }
+    textarea:focus { border-color: var(--accent); }
 
     .char-count {
       position: absolute;
@@ -145,25 +129,19 @@
       letter-spacing: 0.04em;
       padding: 18px 32px;
       cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
       text-transform: uppercase;
     }
 
-    .submit-btn:hover { background: #d9ff4a; }
-    .submit-btn:active { transform: scale(0.99); }
     .submit-btn:disabled {
       background: var(--border);
       color: var(--muted);
       cursor: not-allowed;
     }
 
-    /* loading */
     .loading {
       display: none;
       margin-top: 40px;
       text-align: center;
-      opacity: 0;
-      animation: fadeUp 0.4s ease forwards;
     }
 
     .loading.visible { display: block; }
@@ -178,28 +156,12 @@
       margin: 0 auto 16px;
     }
 
-    .loading-text {
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-    }
-
-    .loading-text span {
-      color: var(--accent);
-      animation: blink 1.2s steps(1) infinite;
-    }
-
-    /* result card */
     .result-card {
       display: none;
       margin-top: 48px;
       border: 1px solid var(--border);
       background: var(--card);
-      opacity: 0;
-      animation: fadeUp 0.5s ease forwards;
     }
-
-    .result-card.visible { display: block; }
 
     .card-header {
       padding: 20px 24px;
@@ -209,28 +171,15 @@
       align-items: center;
     }
 
-    .card-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 0.08em;
+    .category-badge {
+      font-size: 10px;
+      color: #000;
+      background: var(--accent);
+      padding: 2px 8px;
+      font-weight: 800;
       text-transform: uppercase;
-      color: var(--muted);
     }
 
-    .idea-chip {
-      font-size: 11px;
-      color: var(--accent);
-      background: rgba(200, 241, 53, 0.08);
-      padding: 4px 10px;
-      border: 1px solid rgba(200, 241, 53, 0.2);
-      max-width: 260px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    /* score section */
     .score-section {
       padding: 32px 24px;
       border-bottom: 1px solid var(--border);
@@ -239,22 +188,16 @@
       gap: 32px;
     }
 
-    .score-ring {
-      position: relative;
-      flex-shrink: 0;
-    }
-
+    .score-ring { position: relative; }
     .score-ring svg { transform: rotate(-90deg); }
-
     .score-ring .track { fill: none; stroke: var(--border); stroke-width: 4; }
     .score-ring .fill {
       fill: none;
       stroke: var(--accent);
       stroke-width: 4;
-      stroke-linecap: round;
       stroke-dasharray: 201;
       stroke-dashoffset: 201;
-      transition: stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1);
+      transition: stroke-dashoffset 1s ease;
     }
 
     .score-number {
@@ -268,22 +211,6 @@
       font-size: 28px;
     }
 
-    .score-meta { flex: 1; }
-
-    .score-label {
-      font-family: 'Syne', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-
-    .score-desc {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* stats grid */
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -295,55 +222,31 @@
       border-right: 1px solid var(--border);
     }
 
-    .stat-box:nth-child(even) { border-right: none; }
-    .stat-box:nth-child(n+3) { border-top: 1px solid var(--border); }
-
     .stat-label {
       font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
       color: var(--muted);
+      text-transform: uppercase;
       margin-bottom: 8px;
     }
 
     .stat-value {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
-      font-size: 20px;
+      font-size: 18px;
     }
 
-    .stat-value.green { color: var(--accent); }
-    .stat-value.orange { color: var(--accent2); }
-
-    /* insights */
-    .insights {
-      padding: 24px;
-    }
-
-    .insights-title {
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
+    .insights { padding: 24px; }
 
     .insight-item {
       display: flex;
       gap: 12px;
       margin-bottom: 12px;
       font-size: 12px;
-      line-height: 1.6;
       color: #aaa;
     }
 
-    .insight-item::before {
-      content: '→';
-      color: var(--accent);
-      flex-shrink: 0;
-    }
+    .insight-item::before { content: '→'; color: var(--accent); }
 
-    /* error */
     .error-box {
       display: none;
       margin-top: 32px;
@@ -352,104 +255,53 @@
       background: rgba(255, 107, 53, 0.05);
       font-size: 12px;
       color: var(--accent2);
-      line-height: 1.6;
     }
 
-    .error-box.visible { display: block; }
-
-    /* reset */
-    .reset-btn {
-      display: block;
-      margin-top: 24px;
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      padding: 10px 20px;
-      cursor: pointer;
-      letter-spacing: 0.08em;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .reset-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* footer */
     .footer {
       margin-top: 80px;
       padding-top: 24px;
       border-top: 1px solid var(--border);
       font-size: 10px;
       color: var(--muted);
-      letter-spacing: 0.08em;
       display: flex;
       justify-content: space-between;
     }
 
-    /* animations */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0; }
-    }
-
-    @media (max-width: 480px) {
-      .score-section { flex-direction: column; align-items: flex-start; gap: 20px; }
-      .stats-grid { grid-template-columns: 1fr; }
-      .stat-box { border-right: none !important; }
-      .footer { flex-direction: column; gap: 8px; }
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
   <div class="container">
-
     <div class="header">
       <div class="tag">Free Tool for Founders</div>
       <h1>Revenue<br/><span>Reality</span> Checker</h1>
-      <p class="subtitle">Type your SaaS idea. We scan Indie Hackers + competitor pricing and return a Revenue Reality Score (0–100) in seconds.</p>
+      <p class="subtitle">We scan specialized sources based on your industry and return a Revenue Reality Score in seconds.</p>
     </div>
 
     <div class="input-section">
-      <label class="input-label" for="idea">Your SaaS idea</label>
+      <label class="input-label">Your SaaS idea</label>
       <div class="input-wrapper">
-        <textarea
-          id="idea"
-          placeholder="e.g. A tool that helps freelancers auto-generate invoices from Slack messages..."
-          maxlength="300"
-          oninput="updateCount(this)"
-        ></textarea>
+        <textarea id="idea" placeholder="Describe your idea..." maxlength="300" oninput="updateCount(this)"></textarea>
         <span class="char-count" id="charCount">0 / 300</span>
       </div>
-      <button class="submit-btn" id="submitBtn" onclick="checkRevenue()">
-        Check Revenue Reality →
-      </button>
+      <button class="submit-btn" id="submitBtn" onclick="checkRevenue()">Check Revenue Reality →</button>
     </div>
 
-    <!-- Loading -->
     <div class="loading" id="loading">
       <div class="spinner"></div>
-      <div class="loading-text">Scanning Indie Hackers + competitors<span>_</span></div>
+      <div class="loading-text" id="loadingText">Identifying industry category...</div>
     </div>
 
-    <!-- Error -->
-    <div class="error-box" id="errorBox">
-      ⚠ Could not reach the analysis engine. Make sure your n8n workflow is active and try again.
-      <br/><br/>If you're testing locally, switch to the production webhook URL in n8n.
-    </div>
+    <div class="error-box" id="errorBox"></div>
 
-    <!-- Result Card -->
     <div class="result-card" id="resultCard">
       <div class="card-header">
-        <span class="card-title">Analysis Complete</span>
+        <span class="category-badge" id="categoryBadge">General</span>
         <span class="idea-chip" id="ideaChip"></span>
       </div>
 
@@ -468,43 +320,26 @@
       </div>
 
       <div class="stats-grid">
-        <div class="stat-box">
-          <div class="stat-label">Avg MRR (Indie Hackers)</div>
-          <div class="stat-value green" id="statMRR">—</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Competitor Price Range</div>
-          <div class="stat-value orange" id="statPrice">—</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Demand Signal</div>
-          <div class="stat-value" id="statDemand">—</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Competition Level</div>
-          <div class="stat-value" id="statComp">—</div>
-        </div>
+        <div class="stat-box"><div class="stat-label">Avg MRR</div><div class="stat-value" id="statMRR">—</div></div>
+        <div class="stat-box"><div class="stat-label">Price Range</div><div class="stat-value" id="statPrice">—</div></div>
+        <div class="stat-box"><div class="stat-label">Demand</div><div class="stat-value" id="statDemand">—</div></div>
+        <div class="stat-box"><div class="stat-label">Competition</div><div class="stat-value" id="statComp">—</div></div>
       </div>
 
       <div class="insights">
-        <div class="insights-title">Key Insights</div>
         <div id="insightsList"></div>
       </div>
 
-      <div style="padding: 0 24px 24px;">
-        <button class="reset-btn" onclick="resetForm()">← Check another idea</button>
-      </div>
+      <button class="reset-btn" onclick="location.reload()" style="margin: 0 24px 24px; background:none; border:1px solid var(--border); color:var(--muted); padding: 8px 16px; cursor:pointer;">← Reset</button>
     </div>
 
     <div class="footer">
       <span>Revenue Reality Checker</span>
-      <span>Powered by n8n + Gemini + Indie Hackers</span>
+      <span>n8n + Gemini 2.0 + Indie Hackers</span>
     </div>
-
   </div>
 
   <script>
-    // ← YOUR N8N WEBHOOK URL
     const WEBHOOK_URL = "https://mailguysm7.app.n8n.cloud/webhook/9387f3c0-0088-4fb8-b831-8269609f1131";
 
     function updateCount(el) {
@@ -513,21 +348,22 @@
 
     async function checkRevenue() {
       const idea = document.getElementById('idea').value.trim();
-      if (!idea) {
-        document.getElementById('idea').focus();
-        return;
-      }
+      if (!idea) return;
 
-      // UI: loading state
-      document.getElementById('submitBtn').disabled = true;
-      document.getElementById('errorBox').classList.remove('visible');
-      document.getElementById('resultCard').classList.remove('visible');
-      document.getElementById('resultCard').style.display = 'none';
-
+      const btn = document.getElementById('submitBtn');
       const loading = document.getElementById('loading');
+      const loadingText = document.getElementById('loadingText');
+      const errorBox = document.getElementById('errorBox');
+      const resultCard = document.getElementById('resultCard');
+
+      btn.disabled = true;
+      errorBox.style.display = 'none';
+      resultCard.style.display = 'none';
       loading.classList.add('visible');
-      loading.style.opacity = '0';
-      loading.style.animation = 'fadeUp 0.4s ease forwards';
+
+      // Update loading text to keep user engaged
+      setTimeout(() => { loadingText.textContent = "Scanning industry-specific competitors..."; }, 4000);
+      setTimeout(() => { loadingText.textContent = "Gemini 2.0 is calculating revenue potential..."; }, 12000);
 
       try {
         const res = await fetch(WEBHOOK_URL, {
@@ -536,95 +372,47 @@
           body: JSON.stringify({ idea })
         });
 
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        if (!res.ok) throw new Error("The engine is busy. Check your Google Sheet or try again in a moment.");
 
         const data = await res.json();
         loading.classList.remove('visible');
         renderResult(idea, data);
 
       } catch (err) {
-        console.error(err);
         loading.classList.remove('visible');
-        document.getElementById('errorBox').classList.add('visible');
-        document.getElementById('submitBtn').disabled = false;
+        errorBox.style.display = 'block';
+        errorBox.innerHTML = `⚠️ ${err.message}`;
+        btn.disabled = false;
       }
     }
 
     function renderResult(idea, data) {
-      // Support both flat and nested response shapes from n8n
-      const score    = data.score    ?? data.revenue_score ?? data.revenueScore ?? 50;
-      const mrr      = data.mrr      ?? data.avg_mrr       ?? data.avgMRR       ?? "N/A";
-      const price    = data.price    ?? data.price_range   ?? data.priceRange   ?? "N/A";
-      const demand   = data.demand   ?? data.demand_signal ?? data.demandSignal ?? "N/A";
-      const comp     = data.competition ?? data.competition_level ?? "N/A";
-      const insights = data.insights ?? data.key_insights  ?? [];
-      const label    = data.label    ?? data.verdict       ?? scoreLabel(score);
-      const desc     = data.description ?? data.summary    ?? scoreDesc(score);
-
-      // chip
-      document.getElementById('ideaChip').textContent = idea.length > 40 ? idea.slice(0,40)+'…' : idea;
-      document.getElementById('categoryBadge').textContent = data.category;
-      // score ring
+      document.getElementById('resultCard').style.display = 'block';
+      document.getElementById('ideaChip').textContent = idea.slice(0, 30) + (idea.length > 30 ? '...' : '');
+      document.getElementById('categoryBadge').textContent = data.category || "General";
+      
+      const score = data.score || 50;
+      document.getElementById('scoreNumber').textContent = score;
+      document.getElementById('scoreLabel').textContent = data.verdict || "Analysis Ready";
+      
       const circumference = 201;
       const offset = circumference - (score / 100) * circumference;
-      const fill = document.getElementById('scoreFill');
-      fill.style.stroke = score >= 70 ? 'var(--accent)' : score >= 40 ? 'var(--accent2)' : '#ff3b3b';
-      setTimeout(() => { fill.style.strokeDashoffset = offset; }, 100);
-      document.getElementById('scoreNumber').textContent = score;
+      document.getElementById('scoreFill').style.strokeDashoffset = offset;
 
-      // label
-      document.getElementById('scoreLabel').textContent = label;
-      document.getElementById('scoreDesc').textContent  = desc;
+      document.getElementById('statMRR').textContent = data.mrr || "N/A";
+      document.getElementById('statPrice').textContent = data.price || "N/A";
+      document.getElementById('statDemand').textContent = data.demand || "N/A";
+      document.getElementById('statComp').textContent = data.competition || "N/A";
 
-      // stats
-      document.getElementById('statMRR').textContent    = mrr;
-      document.getElementById('statPrice').textContent  = price;
-      document.getElementById('statDemand').textContent = demand;
-      document.getElementById('statComp').textContent   = comp;
-
-      // insights
       const list = document.getElementById('insightsList');
       list.innerHTML = '';
-      const items = Array.isArray(insights) ? insights : [insights];
-      items.forEach(i => {
-        const div = document.createElement('div');
-        div.className = 'insight-item';
-        div.textContent = i;
-        list.appendChild(div);
+      const insights = Array.isArray(data.insights) ? data.insights : [];
+      insights.forEach(text => {
+        const item = document.createElement('div');
+        item.className = 'insight-item';
+        item.textContent = text;
+        list.appendChild(item);
       });
-
-      // show card
-      const card = document.getElementById('resultCard');
-      card.style.display = 'block';
-      card.style.opacity = '0';
-      card.style.animation = 'none';
-      void card.offsetWidth;
-      card.style.animation = 'fadeUp 0.5s ease forwards';
-      card.classList.add('visible');
-    }
-
-    function scoreLabel(s) {
-      if (s >= 80) return '🔥 High Potential';
-      if (s >= 60) return '✅ Solid Opportunity';
-      if (s >= 40) return '⚠️ Proceed Carefully';
-      return '❌ Risky Territory';
-    }
-
-    function scoreDesc(s) {
-      if (s >= 80) return 'Strong market signals. Founders are making real revenue here. Move fast.';
-      if (s >= 60) return 'Decent demand exists. Competition is manageable. Worth validating further.';
-      if (s >= 40) return 'Mixed signals. Either niche is too small or market is oversaturated.';
-      return 'Low revenue evidence found. Consider pivoting or niching down significantly.';
-    }
-
-    function resetForm() {
-      document.getElementById('idea').value = '';
-      document.getElementById('charCount').textContent = '0 / 300';
-      document.getElementById('resultCard').classList.remove('visible');
-      document.getElementById('resultCard').style.display = 'none';
-      document.getElementById('errorBox').classList.remove('visible');
-      document.getElementById('submitBtn').disabled = false;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 </body>
